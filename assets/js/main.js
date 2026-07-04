@@ -42,9 +42,13 @@
 
   carousels.forEach(function (carousel) {
     const slides = Array.from(carousel.querySelectorAll("[class*='__slide']"));
+    const prevButton = carousel.querySelector("[data-carousel-prev]");
+    const nextButton = carousel.querySelector("[data-carousel-next]");
+    const interval = Number(carousel.dataset.carouselInterval) || 5000;
     let activeIndex = slides.findIndex(function (slide) {
       return slide.classList.contains("is-active");
     });
+    let timerId = null;
 
     if (slides.length <= 1) return;
 
@@ -53,11 +57,34 @@
       slides[activeIndex].classList.add("is-active");
     }
 
-    window.setInterval(function () {
+    function goToSlide(nextIndex) {
       slides[activeIndex].classList.remove("is-active");
-      activeIndex = (activeIndex + 1) % slides.length;
+      activeIndex = (nextIndex + slides.length) % slides.length;
       slides[activeIndex].classList.add("is-active");
-    }, 5000);
+    }
+
+    function startTimer() {
+      if (timerId) window.clearInterval(timerId);
+      timerId = window.setInterval(function () {
+        goToSlide(activeIndex + 1);
+      }, interval);
+    }
+
+    if (prevButton) {
+      prevButton.addEventListener("click", function () {
+        goToSlide(activeIndex - 1);
+        startTimer();
+      });
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener("click", function () {
+        goToSlide(activeIndex + 1);
+        startTimer();
+      });
+    }
+
+    startTimer();
   });
 
   function isPriceText(value) {
