@@ -935,6 +935,26 @@ a:hover {
   margin: 8px 0;
 }
 
+.footer-address {
+  margin-bottom: 16px;
+}
+
+.footer-contact {
+  display: grid;
+  gap: 6px;
+}
+
+.footer-contact a {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+}
+
+.footer-contact .footer-email {
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+
 .standalone {
   min-height: 100vh;
 }
