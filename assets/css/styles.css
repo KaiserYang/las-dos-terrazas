@@ -510,27 +510,23 @@ a:hover {
 }
 
 .split-carousel__slide--two {
-  background-image: url("../../Resources/plate2.png");
+  background-image: url("../../Resources/plate1.png");
 }
 
 .split-carousel__slide--three {
-  background-image: url("../../Resources/plate3.png");
+  background-image: url("../../Resources/plate2.png");
 }
 
 .split-carousel__slide--four {
-  background-image: url("../../Resources/plate4.png");
+  background-image: url("../../Resources/plate3.png");
 }
 
 .split-carousel__slide--five {
-  background-image: url("../../Resources/plate5.png");
+  background-image: url("../../Resources/plate4.png");
 }
 
 .split-carousel__slide--six {
-  background-image: url("../../Resources/plate6.png");
-}
-
-.split-carousel__slide--seven {
-  background-image: url("../../Resources/plate7.png");
+  background-image: url("../../Resources/plate5.png");
 }
 
 .split-section__content h2,
